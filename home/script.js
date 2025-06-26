@@ -1,7 +1,7 @@
 // Popular destinations data
 const popularDestinations = [
     {
-        image: "/image-1.png",
+        image: "../image/binhthuan.jpg",
         title: "Khám phá đồi cát bay Mũi Né bằng xe Jeep",
         location: "Bình Thuận, Việt Nam",
         rating: "4.9",
@@ -10,7 +10,7 @@ const popularDestinations = [
         tours: "80+"
     },
     {
-        image: "/image-2.png",
+        image: "../image/vinhhalong.jpg",
         title: "Chèo thuyền kayak vịnh Hạ Long",
         location: "Quảng Ninh, Việt Nam",
         rating: "4.8",
@@ -19,7 +19,7 @@ const popularDestinations = [
         tours: "150+"
     },
     {
-        image: "/image-3.png",
+        image: "../image/danang.jpg",
         title: "City Tour tham quan thành phố Đà Nẵng",
         location: "Đà Nẵng, Việt Nam",
         rating: "4.7",
@@ -28,7 +28,7 @@ const popularDestinations = [
         tours: "90+"
     },
     {
-        image: "/image-4.png",
+        image: "../image/cantho.jpg",
         title: "Tour tham quan Cần Thơ – Chợ nổi Cái Răng",
         location: "Cần Thơ, Việt Nam",
         rating: "4.6",
@@ -37,7 +37,7 @@ const popularDestinations = [
         tours: "60+"
     },
     {
-        image: "/image-6.png",
+        image: "../image/ninhbinh.png",
         title: "Trekking vườn quốc gia Cúc Phương",
         location: "Ninh Bình, Việt Nam",
         rating: "4.9",
@@ -46,7 +46,7 @@ const popularDestinations = [
         tours: "30+"
     },
     {
-        image: "/image-7.png",
+        image: "../image/hoian.jpg",
         title: "Khám phá Hội An về đêm bằng thuyền hoa đăng",
         location: "Quảng Nam, Việt Nam",
         rating: "4.8",
@@ -55,7 +55,7 @@ const popularDestinations = [
         tours: "100+"
     },
     {
-        image: "/image-8.png",
+        image: "../image/yenbai.jpg",
         title: "Trải nghiệm ruộng bậc thang Mù Cang Chải",
         location: "Yên Bái, Việt Nam",
         rating: "4.9",
@@ -64,7 +64,7 @@ const popularDestinations = [
         tours: "40+"
     },
     {
-        image: "/image-9.png",
+        image: "../image/laocai.jpg",
         title: "Lên đỉnh Fansipan bằng cáp treo và leo bộ",
         location: "Lào Cai, Việt Nam",
         rating: "4.8",
@@ -76,14 +76,14 @@ const popularDestinations = [
 
 // Popular cities data
 const popularCities = [
-    { name: "Hà Nội", tours: "300+", image: "/image-10.png" },
-    { name: "Đà Nẵng", tours: "250+", image: "/image-11.png" },
-    { name: "TP. Hồ Chí Minh", tours: "400+", image: "/image-13.png" },
-    { name: "Hội An", tours: "200+", image: "/image-14.png" },
-    { name: "Sapa", tours: "150+", image: "/image-15.png" },
-    { name: "Phú Quốc", tours: "300+", image: "/image-16.png" },
-    { name: "Nha Trang", tours: "220+", image: "/image-17.png" },
-    { name: "Hạ Long", tours: "280+", image: "/image-19.png" }
+    { name: "Hà Nội", tours: "300+", image: "../image/hanoi.jpg" },
+    { name: "Đà Nẵng", tours: "250+", image: "../image/danang.jpg" },
+    { name: "TP. Hồ Chí Minh", tours: "400+", image: "../image/hochiminh.jpg" },
+    { name: "Hội An", tours: "200+", image: "../image/hoian.jpg" },
+    { name: "Sapa", tours: "150+", image: "../image/sapa.jpg" },
+    { name: "Phú Quốc", tours: "300+", image: "../image/phuquoc.jpg" },
+    { name: "Nha Trang", tours: "220+", image: "../image/nhatrang.jpg" },
+    { name: "Hạ Long", tours: "280+", image: "../image/vinhhalong.jpg" }
 ];
 
 // Function to create destination card HTML
