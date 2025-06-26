@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TravelShare - Tìm kiếm</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div id="sidebar-container"></div>
+    <!-- Nút toggle sidebar cho mobile -->
+    <button id="sidebar-toggle" class="sidebar-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Nội dung chính -->
+    <main class="main-content">
+      <div class="container">
+        <h1>Tìm kiếm</h1>
+
+        <div class="search-section">
+          <div class="search-box">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Tìm kiếm địa điểm, bài đăng, người dùng..."
+            />
+            <button onclick="performSearch()">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                ></path>
+              </svg>
+              Tìm kiếm
+            </button>
+          </div>
+        </div>
+
+        <div class="search-results">
+          <div class="result-category">
+            <h3>Địa điểm</h3>
+            <div class="result-items">
+              <div class="result-item">Đà Lạt</div>
+              <div class="result-item">Hội An</div>
+              <div class="result-item">Phú Quốc</div>
+            </div>
+          </div>
+
+          <div class="result-category">
+            <h3>Bài đăng</h3>
+            <div class="result-items">
+              <div class="result-item">
+                <strong>Bài đăng 1</strong>
+                <p>Mô tả ngắn về bài đăng...</p>
+              </div>
+              <div class="result-item">
+                <strong>Bài đăng 2</strong>
+                <p>Mô tả ngắn về bài đăng...</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="result-category">
+            <h3>Người dùng</h3>
+            <div class="result-items">
+              <div class="result-item user-item">
+                <img src="images/image-75.png" alt="User" class="user-avatar" />
+                <span>Du khách 1</span>
+              </div>
+              <div class="result-item user-item">
+                <img src="images/image-75.png" alt="User" class="user-avatar" />
+                <span>Du khách 2</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="js/search.js"></script>
+  </body>
+</html>

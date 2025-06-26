@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TravelShare - Tạo bài đăng</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div id="sidebar-container"></div>
+
+    <!-- Nút toggle sidebar cho mobile -->
+    <button id="sidebar-toggle" class="sidebar-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Nội dung chính -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Facebook-style Create Post -->
+        <div class="fb-create-post">
+          <!-- Header -->
+          <div class="fb-post-header">
+            <h2>Tạo bài đăng</h2>
+            <button class="fb-close-btn" onclick="window.history.back()">
+              <svg
+                width="24"
+                height="24"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- User Info -->
+          <div class="fb-user-info">
+            <img src="assets/image 75.png" alt="User Avatar" class="fb-user-avatar" />
+            <div class="fb-user-details">
+              <h3>nhuyyyy213</h3>
+              <div class="fb-privacy-selector">
+                <button class="fb-privacy-btn" onclick="togglePrivacyMenu()">
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                    />
+                  </svg>
+                  Công khai
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M7 10l5 5 5-5z" />
+                  </svg>
+                </button>
+                <div id="privacyMenu" class="fb-privacy-menu">
+                  <div class="privacy-option" onclick="selectPrivacy('public')">
+                    <svg
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                      />
+                    </svg>
+                    <div>
+                      <strong>Công khai</strong>
+                      <p>Mọi người đều có thể xem</p>
+                    </div>
+                  </div>
+                  <div
+                    class="privacy-option"
+                    onclick="selectPrivacy('friends')"
+                  >
+                    <svg
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A2.996 2.996 0 0 0 17.06 7H16c-.8 0-1.54.37-2.01.99L12 10l-1.99-2.01A2.99 2.99 0 0 0 8 7H6.94c-1.4 0-2.59.93-2.9 2.37L1.5 16H4v6h2v-6h2.5l2.5-3 2.5 3H16v6h4z"
+                      />
+                    </svg>
+                    <div>
+                      <strong>Bạn bè</strong>
+                      <p>Chỉ bạn bè có thể xem</p>
+                    </div>
+                  </div>
+                  <div
+                    class="privacy-option"
+                    onclick="selectPrivacy('private')"
+                  >
+                    <svg
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"
+                      />
+                    </svg>
+                    <div>
+                      <strong>Chỉ mình tôi</strong>
+                      <p>Chỉ bạn có thể xem</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Post Content -->
+          <div class="fb-post-content">
+            <textarea
+              id="postContent"
+              placeholder="Bạn đang nghĩ gì về chuyến du lịch này?"
+              class="fb-post-textarea"
+              oninput="adjustTextareaHeight(this)"
+            ></textarea>
+
+            <!-- Location Input -->
+            <div
+              class="fb-location-input"
+              id="locationInput"
+              style="display: none"
+            >
+              <svg
+                width="20"
+                height="20"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+              <input
+                type="text"
+                placeholder="Bạn đang ở đâu?"
+                id="locationText"
+                autocomplete="off"
+              />
+              <button onclick="removeLocation()">
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Image Preview -->
+            <div id="imagePreview" class="fb-image-preview"></div>
+
+            <!-- Feeling/Activity -->
+            <div
+              class="fb-feeling-activity"
+              id="feelingActivity"
+              style="display: none"
+            >
+              <span id="feelingIcon" style="font-size: 20px; margin-right: 6px"
+                >😊</span
+              >
+              <span id="feelingText">đang cảm thấy hạnh phúc</span>
+              <button onclick="removeFeelingActivity()" type="button">
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <!-- Menu chọn cảm xúc -->
+            <div
+              id="feelingMenu"
+              style="
+                display: none;
+                position: absolute;
+                background: #fff;
+                border: 1px solid #e2e8f0;
+                border-radius: 10px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+                padding: 12px;
+                z-index: 100;
+              "
+            >
+              <div style="display: flex; gap: 12px">
+                <button
+                  type="button"
+                  onclick="selectFeeling('😊','đang cảm thấy hạnh phúc')"
+                  style="
+                    font-size: 22px;
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                  "
+                >
+                  😊
+                </button>
+                <button
+                  type="button"
+                  onclick="selectFeeling('😢','đang cảm thấy buồn')"
+                  style="
+                    font-size: 22px;
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                  "
+                >
+                  😢
+                </button>
+                <button
+                  type="button"
+                  onclick="selectFeeling('😍','đang cảm thấy yêu đời')"
+                  style="
+                    font-size: 22px;
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                  "
+                >
+                  😍
+                </button>
+                <button
+                  type="button"
+                  onclick="selectFeeling('😮','đang cảm thấy ngạc nhiên')"
+                  style="
+                    font-size: 22px;
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                  "
+                >
+                  😮
+                </button>
+                <button
+                  type="button"
+                  onclick="selectFeeling('😎','đang cảm thấy tuyệt vời')"
+                  style="
+                    font-size: 22px;
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                  "
+                >
+                  😎
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add to Post -->
+          <div class="fb-add-to-post">
+            <span>Thêm vào bài đăng của bạn</span>
+            <div class="fb-post-options">
+              <button
+                class="fb-option-btn"
+                onclick="document.getElementById('imageInput').click()"
+                title="Ảnh/Video"
+              >
+                <svg width="24" height="24" fill="#45bd62" viewBox="0 0 24 24">
+                  <path
+                    d="M19 7v2.99s-1.99.01-2 0V7h-3s.01-1.99 0-2h3V2h2v3h3v2h-3zm-3 4V8h-3V5H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-8h-3zM5 19l3-4 2 3 3-4 4 5H5z"
+                  />
+                </svg>
+              </button>
+              <button
+                class="fb-option-btn"
+                onclick="toggleLocationInput()"
+                title="Check in"
+              >
+                <svg width="24" height="24" fill="#f5533d" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                  />
+                </svg>
+              </button>
+              <button
+                class="fb-option-btn"
+                onclick="toggleFeelingActivity()"
+                title="Cảm xúc/Hoạt động"
+              >
+                <svg width="24" height="24" fill="#f7b928" viewBox="0 0 24 24">
+                  <path
+                    d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"
+                  />
+                </svg>
+              </button>
+              <button
+                class="fb-option-btn"
+                type="button"
+                onclick="toggleGifMenu()"
+                title="GIF"
+              >
+                <svg width="24" height="24" fill="#579ffb" viewBox="0 0 24 24">
+                  <path
+                    d="M11.5 9H13v6h-1.5zM9 9H6c-.6 0-1 .5-1 1v4c0 .5.4 1 1 1h3c.6 0 1-.5 1-1v-2H8.5v1.5h-2v-3H10V9zm10 1.5V9h-4.5v6H16v-2h2v-1.5h-2v-1z"
+                  />
+                </svg>
+              </button>
+              <button
+                class="fb-option-btn fb-more-btn"
+                onclick="toggleMoreOptions()"
+                title="Thêm"
+              >
+                <svg width="24" height="24" fill="#606770" viewBox="0 0 24 24">
+                  <path
+                    d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Post Button -->
+          <button
+            class="fb-post-btn"
+            id="postBtn"
+            onclick="publishPost()"
+            disabled
+          >
+            Đăng
+          </button>
+        </div>
+
+        <!-- Hidden file input -->
+        <input
+          type="file"
+          id="imageInput"
+          name="image"
+          accept="image/*,video/*"
+          style="display: none"
+          onchange="handleFileSelect(event)"
+        />
+      </div>
+    </main>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/create-post.js"></script>
+  </body>
+</html>
+</html>
+        textarea.style.height = "auto";
+        textarea.style.height = textarea.scrollHeight + "px";
+
+        // Enable/disable post button
+        const postBtn = document.getElementById("postBtn");
+        const content = textarea.value.trim();
+        const hasImages =
+          document.getElementById("imagePreview").children.length > 0;
+
+        postBtn.disabled = !content && !hasImages;
+
+      // Toggle privacy menu
+      function togglePrivacyMenu() {
+        const menu = document.getElementById("privacyMenu");
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+      }
+
+      // Select privacy option
+      function selectPrivacy(type) {
+        const btn = document.querySelector(".fb-privacy-btn");
+        const icons = {
+          public:
+            '<svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>',
+          friends:
+            '<svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A2.996 2.996 0 0 0 17.06 7H16c-.8 0-1.54.37-2.01.99L12 10l-1.99-2.01A2.99 2.99 0 0 0 8 7H6.94c-1.4 0-2.59.93-2.9 2.37L1.5 16H4v6h2v-6h2.5l2.5-3 2.5 3H16v6h4z"/></svg>',
+          private:
+            '<svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>',
+        };
+        const labels = {
+          public: "Công khai",
+          friends: "Bạn bè",
+          private: "Chỉ mình tôi",
+        };
+
+        btn.innerHTML = `${icons[type]} ${labels[type]} <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>`;
+        document.getElementById("privacyMenu").style.display = "none";
+      }
+
+      // Toggle location input
+      function toggleLocationInput() {
+        const locationInput = document.getElementById("locationInput");
+        locationInput.style.display =
+          locationInput.style.display === "none" ? "flex" : "none";
+        if (locationInput.style.display === "flex") {
+          document.getElementById("locationText").focus();
+        }
+      }
+
+      // Remove location
+      function removeLocation() {
+        document.getElementById("locationInput").style.display = "none";
+        document.getElementById("locationText").value = "";
+      }
+
+      // Toggle feeling/activity
+      function toggleFeelingActivity() {
+        const menu = document.getElementById("feelingMenu");
+        if (menu.style.display === "block") {
+          menu.style.display = "none";
+        } else {
+          // Hiển thị menu ở vị trí nút
+          const btn = document.querySelector(
+            "button[onclick^='toggleFeelingActivity']"
+          );
+          const rect = btn.getBoundingClientRect();
+          menu.style.display = "block";
+          menu.style.top = rect.bottom + window.scrollY + 8 + "px";
+          menu.style.left = rect.left + window.scrollX + "px";
+        }
+      }
+
+      function selectFeeling(icon, text) {
+        document.getElementById("feelingIcon").textContent = icon;
+        document.getElementById("feelingText").textContent = text;
+        document.getElementById("feelingActivity").style.display = "flex";
+        document.getElementById("feelingMenu").style.display = "none";
+      }
+
+      function removeFeelingActivity() {
+        document.getElementById("feelingActivity").style.display = "none";
+      }
+
+      // Handle file selection
+      function handleFileSelect(event) {
+        const files = event.target.files;
+        const preview = document.getElementById("imagePreview");
+
+        for (let i = 0; i < files.length; i++) {
+          const file = files[i];
+          const reader = new FileReader();
+
+          reader.onload = function (e) {
+            const mediaContainer = document.createElement("div");
+            mediaContainer.className = "fb-media-item";
+
+            if (file.type.startsWith("image/")) {
+              mediaContainer.innerHTML = `
+                            <img src="${e.target.result}" alt="Preview">
+                            <button class="fb-remove-media" onclick="removeMedia(this)">
+                                <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+                                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                </svg>
+                            </button>
+                        `;
+            } else if (file.type.startsWith("video/")) {
+              mediaContainer.innerHTML = `
+                            <video controls>
+                                <source src="${e.target.result}" type="${file.type}">
+                            </video>
+                            <button class="fb-remove-media" onclick="removeMedia(this)">
+                                <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+                                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                </svg>
+                            </button>
+                        `;
+            }
+
+            preview.appendChild(mediaContainer);
+
+            // Enable post button if there are images
+            const postBtn = document.getElementById("postBtn");
+            const content = document.getElementById("postContent").value.trim();
+            postBtn.disabled = !content && preview.children.length === 0;
+          };
+
+          reader.readAsDataURL(file);
+        }
+      }
+
+      // Remove media item
+      function removeMedia(button) {
+        const mediaItem = button.parentElement;
+        mediaItem.remove();
+
+        // Check if post button should be disabled
+        const postBtn = document.getElementById("postBtn");
+        const content = document.getElementById("postContent").value.trim();
+        const hasImages =
+          document.getElementById("imagePreview").children.length > 0;
+        postBtn.disabled = !content && !hasImages;
+      }
+
+      // Publish post (gửi cả ảnh lên backend)
+      function publishPost() {
+        const content = document.getElementById("postContent").value.trim();
+        const location = document.getElementById("locationText").value.trim();
+        const hasImages = document.getElementById("imagePreview").children.length > 0;
+        const hasFeelingActivity = document.getElementById("feelingActivity").style.display !== "none";
+        const feeling = hasFeelingActivity ? document.getElementById("feelingText").textContent : "";
+
+        if (!content && !hasImages) {
+          alert("Vui lòng nhập nội dung hoặc thêm hình ảnh!");
+          return;
+        }
+
+        const postBtn = document.getElementById("postBtn");
+        postBtn.disabled = true;
+        postBtn.textContent = "Đang đăng...";
+
+        // Chuẩn bị dữ liệu gửi lên backend (FormData)
+        const formData = new FormData();
+        formData.append("content", content);
+        formData.append("location", location);
+        formData.append("feeling", feeling);
+        // Lấy file ảnh đầu tiên (nếu có)
+        const imageInput = document.getElementById("imageInput");
+        if (imageInput.files && imageInput.files[0]) {
+          formData.append("image", imageInput.files[0]);
+        }
+
+        fetch("http://127.0.0.1:3000/api/posts", {
+          method: "POST",
+          body: formData,
+        })
+          .then((res) => {
+            if (!res.ok) throw new Error("Lỗi khi đăng bài");
+            return res.json();
+          })
+          .then(() => {
+            window.location.href = "blog.html";
+          })
+          .catch((err) => {
+            alert("Đăng bài thất bại!");
+            postBtn.disabled = false;
+            postBtn.textContent = "Đăng";
+          });
+      }
+
+      // Close privacy menu when clicking outside
+      document.addEventListener("click", function (event) {
+        const privacyMenu = document.getElementById("privacyMenu");
+        const privacyBtn = document.querySelector(".fb-privacy-btn");
+
+        if (
+          !privacyBtn.contains(event.target) &&
+          !privacyMenu.contains(event.target)
+        ) {
+          privacyMenu.style.display = "none";
+        }
+      });
+
+      // Auto-focus on textarea when page loads
+      document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("postContent").focus();
+      });
+
+      // Menu chọn GIF
+      function toggleGifMenu() {
+        const menu = document.getElementById("gifMenu");
+        if (menu.style.display === "block") {
+          menu.style.display = "none";
+        } else {
+          // Hiển thị menu ở vị trí nút GIF
+          const btn = document.querySelector("button[title='GIF']");
+          const rect = btn.getBoundingClientRect();
+          menu.style.display = "block";
+          menu.style.top = rect.bottom + window.scrollY + 8 + "px";
+          menu.style.left = rect.left + window.scrollX + "px";
+        }
+      }
+      function selectGif(src) {
+        const preview = document.getElementById("imagePreview");
+        const mediaContainer = document.createElement("div");
+        mediaContainer.className = "fb-media-item";
+        mediaContainer.innerHTML = `
+          <img src="${src}" alt="GIF" style="object-fit:cover; width:100%; height:200px;">
+          <button class="fb-remove-media" onclick="removeMedia(this)">
+            <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+            </svg>
+          </button>
+        `;
+        preview.appendChild(mediaContainer);
+        document.getElementById("gifMenu").style.display = "none";
+        // Enable post button if needed
+        const postBtn = document.getElementById("postBtn");
+        const content = document.getElementById("postContent").value.trim();
+        postBtn.disabled = !content && preview.children.length === 0;
+      }
+      // Đóng menu GIF khi click ngoài
+      window.addEventListener("click", function (e) {
+        const menu = document.getElementById("gifMenu");
+        const btn = document.querySelector("button[title='GIF']");
+        if (
+          menu &&
+          menu.style.display === "block" &&
+          !menu.contains(e.target) &&
+          e.target !== btn
+        ) {
+          menu.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

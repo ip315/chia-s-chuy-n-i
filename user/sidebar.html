@@ -1,0 +1,124 @@
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+  <div class="sidebar-header">
+    <img src="assets/image 5.png" alt="TravelShare Logo" class="logo" />
+    <h1 class="app-name">TravelShare</h1>
+  </div>
+  <nav class="sidebar-nav">
+    <a href="index.html" class="nav-item" data-page="home">
+      <img
+        src="assets/pngtree-vector-house-icon-png-image_695369-removebg-preview 1.png"
+        alt="Home"
+        class="nav-icon"
+      />
+      <span>Trang chủ</span>
+    </a>
+    <a href="search.html" class="nav-item" data-page="search">
+      <img src="assets/Vector.png" alt="Notifications" class="nav-icon" />
+      <span>Tìm kiếm</span>
+    </a>
+    <a href="notifications.html" class="nav-item" data-page="notifications">
+      <img
+        src="assets/Screenshot_11-6-2025_132349_png.pngtree.com-removebg-preview 1.png"
+        alt="Notifications"
+        class="nav-icon"
+      />
+      <span>Thông báo</span>
+    </a>
+    <a href="create-post.html" class="nav-item" data-page="create">
+      <img
+        src="assets/Screenshot_11-6-2025_141552_c8.alamy.com-removebg-preview 1.png"
+        alt="Create"
+        class="nav-icon"
+      />
+      <span>Tạo bài đăng</span>
+    </a>
+    <a href="profile.html" class="nav-item" data-page="profile">
+      <img
+        src="assets/image 75.png"
+        alt="Profile"
+        class="nav-icon profile-img"
+      />
+      <span>Trang cá nhân</span>
+    </a>
+    <a
+      href="#"
+      class="nav-item"
+      data-page="logout"
+      onclick="handleLogout(event)"
+    >
+      <img
+        src="assets/pngtree-box-logout-icon-vectors-png-image_1737862-removebg-preview 1.png"
+        alt="Logout"
+        class="nav-icon"
+      />
+      <span>Đăng xuất</span>
+    </a>
+  </nav>
+  <div class="sidebar-footer">
+    <p>&copy; 2025 TravelShare</p>
+  </div>
+
+  <!-- Modal xác nhận đăng xuất -->
+  <div
+    id="logoutModal"
+    style="
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.2);
+      align-items: center;
+      justify-content: center;
+    "
+  >
+    <div
+      style="
+        background: #fff;
+        border-radius: 12px;
+        padding: 32px 24px;
+        min-width: 300px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+        text-align: center;
+      "
+    >
+      <h3 style="margin-bottom: 16px; font-size: 18px">
+        Bạn có chắc muốn đăng xuất?
+      </h3>
+      <div style="display: flex; gap: 16px; justify-content: center">
+        <button
+          onclick="closeLogoutModal()"
+          style="
+            padding: 8px 20px;
+            border-radius: 6px;
+            border: none;
+            background: #f1f5f9;
+            color: #334155;
+            font-weight: 500;
+            cursor: pointer;
+          "
+        >
+          Hủy
+        </button>
+        <button
+          onclick="confirmLogout()"
+          style="
+            padding: 8px 20px;
+            border-radius: 6px;
+            border: none;
+            background: #ef4444;
+            color: #fff;
+            font-weight: 500;
+            cursor: pointer;
+          "
+        >
+          Đăng xuất
+        </button>
+      </div>
+    </div>
+  </div>
+  <script src="js/logout.js"></script>
+</div>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TravelShare - Thông báo</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div id="sidebar-container"></div>
+    <!-- Nút toggle sidebar cho mobile -->
+    <button id="sidebar-toggle" class="sidebar-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Nội dung chính -->
+    <main class="main-content">
+      <div class="container">
+        <h1>Thông báo</h1>
+
+        <div class="notifications-list">
+          <div class="notification-item unread">
+            <img
+              src="images/image-75.png"
+              alt="User"
+              class="notification-avatar"
+            />
+            <div class="notification-content">
+              <p><strong>Du khách 1</strong> đã thích bài đăng của bạn</p>
+              <small>5 phút trước</small>
+            </div>
+            <div class="notification-dot"></div>
+          </div>
+
+          <div class="notification-item unread">
+            <img
+              src="images/image-75.png"
+              alt="User"
+              class="notification-avatar"
+            />
+            <div class="notification-content">
+              <p>
+                <strong>Du khách 2</strong> đã bình luận về bài đăng "Chuyến đi
+                Đà Lạt"
+              </p>
+              <small>1 giờ trước</small>
+            </div>
+            <div class="notification-dot"></div>
+          </div>
+
+          <div class="notification-item">
+            <img
+              src="images/image-75.png"
+              alt="User"
+              class="notification-avatar"
+            />
+            <div class="notification-content">
+              <p><strong>Du khách 3</strong> đã bắt đầu theo dõi bạn</p>
+              <small>2 giờ trước</small>
+            </div>
+          </div>
+
+          <div class="notification-item">
+            <img
+              src="images/image-75.png"
+              alt="User"
+              class="notification-avatar"
+            />
+            <div class="notification-content">
+              <p>Bài đăng của bạn đã đạt 50 lượt thích!</p>
+              <small>1 ngày trước</small>
+            </div>
+          </div>
+
+          <div class="notification-item">
+            <img
+              src="images/image-75.png"
+              alt="User"
+              class="notification-avatar"
+            />
+            <div class="notification-content">
+              <p><strong>Du khách 4</strong> đã chia sẻ bài đăng của bạn</p>
+              <small>2 ngày trước</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="js/notifications.js"></script>
+  </body>
+</html>

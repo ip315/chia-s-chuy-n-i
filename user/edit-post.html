@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chỉnh sửa bài viết - TravelShare</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div id="sidebar-container"></div>
+    <!-- Nút toggle sidebar cho mobile -->
+    <button id="sidebar-toggle" class="sidebar-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Nội dung chính -->
+    <main class="main-content">
+      <div class="container">
+        <h1>Chỉnh sửa bài viết</h1>
+        <form class="edit-post-form" id="editPostForm">
+          <div class="form-group">
+            <label for="edit-title">Tiêu đề bài viết</label>
+            <input
+              type="text"
+              id="edit-title"
+              name="edit-title"
+              value="Chuyến đi Đà Lạt"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="edit-content">Nội dung</label>
+            <textarea id="edit-content" name="edit-content" rows="6" required>Khám phá thành phố ngàn hoa cùng bạn bè.</textarea>
+          </div>
+          <div class="form-group">
+            <label for="edit-image">Ảnh bài viết</label>
+            <div class="image-upload">
+              <input
+                type="file"
+                id="edit-image"
+                name="edit-image"
+                accept="image/*"
+                style="display: none"
+              />
+              <label for="edit-image" class="upload-btn">Chọn ảnh mới</label>
+              <div class="image-preview">
+                <img
+                  src="images/image 79.png"
+                  alt="Ảnh hiện tại"
+                  class="preview-image"
+                  id="currentImage"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Lưu thay đổi</button>
+            <a href="profile.html" class="btn-secondary">Hủy</a>
+          </div>
+        </form>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="footer-col">
+        <h4>Giới thiệu</h4>
+        <ul>
+          <li>Về TravelShare</li>
+          <li>Tuyển dụng</li>
+          <li>Hệ Thống</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Dịch vụ khách hàng</h4>
+        <ul>
+          <li>Chính sách điều khoản</li>
+          <li>Hướng dẫn mua hàng</li>
+          <li>Chính sách thanh toán</li>
+          <li>Chính sách bảo hành</li>
+          <li>Hệ thống trang wed</li>
+          <li>Q&A</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Liên hệ</h4>
+        <ul>
+          <li>Hotline</li>
+          <li>Email</li>
+          <li>Live chat</li>
+          <li>Lesenger</li>
+          <li>Liên hệ</li>
+        </ul>
+      </div>
+      <p class="copyright">@TravelShare All rights reserved</p>
+    </footer>
+    <script src="js/edit-post.js"></script>
+    <script src="js/sidebar.js"></script>
+  </body>
+</html>
+        const preview = document.querySelector(".image-preview");
+        preview.innerHTML = "";
+        if (e.target.files && e.target.files[0]) {
+          const reader = new FileReader();
+          reader.onload = function (ev) {
+            const img = document.createElement("img");
+            img.src = ev.target.result;
+            img.className = "preview-image";
+            preview.appendChild(img);
+          };
+          reader.readAsDataURL(e.target.files[0]);
+        }
+      ;
+
+      // Gửi form bằng JavaScript (chuẩn bị FormData)
+      document.getElementById("editPostForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+        // TODO: Gửi formData lên backend bằng fetch (cần backend hỗ trợ upload file)
+        alert("Đã chuẩn bị dữ liệu gửi lên backend (cần backend hỗ trợ upload file)");
+        // Ví dụ gửi:
+        // fetch('http://127.0.0.1:3000/api/posts/ID', { method: 'PUT', body: formData })
+        //   .then(res => res.json()).then(...)
+      });
+    </script>
+    <script src="js/sidebar.js"></script>
+  </body>
+</html>
