@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Sign Up</title>
+    <link rel="stylesheet" href="styleslogin.css">
+</head>
+<body>
+    <main class="container">
+        <!-- Left side - Background image -->
+        <section class="image-section">
+            <img src="/image-73.png" alt="Coastal landscape" class="background-image">
+        </section>
+
+        <!-- Right side - Sign up form -->
+        <section class="form-section">
+            <div class="form-container">
+                <!-- Airplane icon with dotted path -->
+                <div class="airplane-decoration">
+                    <svg class="plane-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+                    </svg>
+                    <img src="/vector-14.svg" alt="Dotted path" class="dotted-path">
+                </div>
+
+                <!-- Welcome header -->
+                <div class="header">
+                    <h1 class="welcome-title">Welcome</h1>
+                    <p class="subtitle">Create your account</p>
+                </div>
+
+                <!-- Sign up form -->
+                <form class="login-form" id="signupForm">
+                    <div class="input-group">
+                        <label for="name" class="input-label">Full Name</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            <input type="text" id="name" class="form-input" placeholder="Enter your full name" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email" class="input-label">Email Id</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password" class="input-label">Password</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <circle cx="12" cy="16" r="1"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                            <input type="password" id="password" class="form-input" placeholder="Create a password" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="confirmPassword" class="input-label">Confirm Password</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <circle cx="12" cy="16" r="1"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                            <input type="password" id="confirmPassword" class="form-input" placeholder="Confirm your password" required>
+                        </div>
+                    </div>
+
+                    <div class="terms-checkbox">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a></label>
+                    </div>
+
+                    <button type="submit" class="login-button">SIGN UP</button>
+
+                    <div class="login-link">
+                        Already have an account? <a href="login.html" class="login-redirect">Log in</a>
+                    </div>
+                </form>
+
+                <!-- Landmark icons at the bottom -->
+                <div class="landmarks">
+                    <img src="/group-1.png" alt="Taj Mahal landmarks" class="landmark-icon">
+                    <img src="/group.png" alt="European landmarks" class="landmark-icon">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="scriptsignup.js"></script>
+</body>
+</html>
