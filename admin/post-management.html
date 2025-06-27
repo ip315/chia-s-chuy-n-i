@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <title>Quản lý bài viết</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Inter:400,700|Inria+Sans:700");
+  </style>
+  <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <div class="main-wrapper">
+      <header class="header">
+        <div class="admin-profile">
+          <div class="avatar">
+            <img src="public/admin-avatar.png" alt="Admin" class="avatar-image" />
+          </div>
+          <div class="admin-text">Admin</div>
+        </div>
+
+        <nav class="navigation">
+          <a href="dashboard.html" class="nav-link">
+            <img src="public/home-icon.png" alt="Dashboard" class="nav-icon" />
+          </a>
+
+          <a href="user-management.html" class="nav-link">
+            <img src="public/user-icon.png" alt="Quản lý người dùng" class="nav-icon" />
+          </a>
+
+          <a href="post-management.html" class="nav-link active">
+            <div class="nav-icon-active">
+              <img src="public/post-icon-active.png" alt="Quản lý bài viết" class="nav-icon-image" />
+            </div>
+          </a>
+        </nav>
+      </header>
+
+      <main class="main-content">
+        <h1 class="page-title">Quản lý bài viết</h1>
+
+        <div class="post-controls">
+          <div class="search-container">
+            <div class="search-wrapper">
+              <svg class="search-icon" width="42" height="31" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+              <input
+                type="text"
+                class="search-input"
+                placeholder="Tìm kiếm bài viết..."
+                id="postSearchInput"
+              />
+              <button class="search-button" onclick="searchPosts()">
+                Tìm kiếm
+              </button>
+            </div>
+          </div>
+          
+          <div class="filter-container">
+            <select id="postFilter" class="filter-select">
+              <option value="all">Tất cả bài viết</option>
+              <option value="published">Đã xuất bản</option>
+              <option value="draft">Bản nháp</option>
+              <option value="pending">Chờ duyệt</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table class="posts-table">
+            <thead>
+              <tr class="table-header">
+                <th class="table-header-cell">Tiêu đề</th>
+                <th class="table-header-cell">Tác giả</th>
+                <th class="table-header-cell">Ngày đăng</th>
+                <th class="table-header-cell">Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody id="postsTableBody">
+              <!-- Posts will be loaded by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+        
+        <button class="add-button" onclick="showAddPostModal()">
+          <span>+</span> Thêm bài viết mới
+        </button>
+      </main>
+    </div>
+  </div>
+
+  <!-- Add Post Modal -->
+  <div id="addPostModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" onclick="closeModal()">&times;</span>
+      <h2>Thêm bài viết mới</h2>
+      <form id="postForm">
+        <div class="form-group">
+          <label for="postTitle">Tiêu đề</label>
+          <input type="text" id="postTitle" required>
+        </div>
+        <div class="form-group">
+          <label for="postAuthor">Tác giả</label>
+          <select id="postAuthor" required>
+            <!-- Authors will be loaded by JavaScript -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="postContent">Nội dung</label>
+          <textarea id="postContent" rows="6" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="postStatus">Trạng thái</label>
+          <select id="postStatus" required>
+            <option value="published">Xuất bản</option>
+            <option value="draft">Bản nháp</option>
+            <option value="pending">Chờ duyệt</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-button">Lưu bài viết</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="post-script.js"></script>
+</body>
+</html>

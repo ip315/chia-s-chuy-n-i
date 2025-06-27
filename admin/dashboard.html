@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <title>Tổng quan hệ thống</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Inter:400,700|Inria+Sans:700");
+  </style>
+  <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <div class="main-wrapper">
+      <header class="header">
+        <div class="admin-profile">
+          <div class="avatar">
+            <img src="public/admin-avatar.png" alt="Admin" class="avatar-image" />
+          </div>
+          <div class="admin-text">Admin</div>
+        </div>
+
+        <nav class="navigation">
+          <a href="dashboard.html" class="nav-link active">
+            <div class="nav-icon-active">
+              <img src="public/home-icon-active.png" alt="Dashboard" class="nav-icon-image" />
+            </div>
+          </a>
+
+          <a href="user-management.html" class="nav-link">
+            <img src="public/user-icon.png" alt="Quản lý người dùng" class="nav-icon" />
+          </a>
+
+          <a href="post-management.html" class="nav-link">
+            <img src="public/post-icon.png" alt="Quản lý bài viết" class="nav-icon" />
+          </a>
+        </nav>
+      </header>
+
+      <main class="main-content">
+        <h1 class="page-title">Tổng quan hệ thống</h1>
+
+        <div class="stats-container">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <img src="public/users-icon.png" alt="Users">
+            </div>
+            <div class="stat-info">
+              <div class="stat-number" id="totalUsers">0</div>
+              <div class="stat-title">Người dùng</div>
+            </div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-icon">
+              <img src="public/posts-icon.png" alt="Posts">
+            </div>
+            <div class="stat-info">
+              <div class="stat-number" id="totalPosts">0</div>
+              <div class="stat-title">Bài viết</div>
+            </div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-icon">
+              <img src="public/comments-icon.png" alt="Comments">
+            </div>
+            <div class="stat-info">
+              <div class="stat-number" id="totalComments">0</div>
+              <div class="stat-title">Bình luận</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="activity-section">
+          <h2 class="section-title">Hoạt động gần đây</h2>
+          <div class="activity-list" id="activityList">
+            <!-- Activities will be loaded by JavaScript -->
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="dashboard-script.js"></script>
+</body>
+</html>
